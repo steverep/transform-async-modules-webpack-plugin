@@ -1,0 +1,63 @@
+{
+  "name": "transform-async-modules-webpack-plugin",
+  "description": "A Webpack plugin to transpile async module output using Babel",
+  "version": "1.0.0",
+  "license": "MIT",
+  "homepage": "https://github.com/steverep/transform-async-modules-webpack-plugin",
+  "keywords": [
+    "webpack plugin",
+    "async modules",
+    "top level await",
+    "ES5"
+  ],
+  "author": {
+    "name": "Steve Repsher"
+  },
+  "repository": {
+    "url": "https://github.com/steverep/transform-async-modules-webpack-plugin.git",
+    "type": "git"
+  },
+  "bugs": {
+    "url": "https://github.com/steverep/transform-async-modules-webpack-plugin/issues"
+  },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/steverep"
+  },
+  "packageManager": "yarn@4.0.2",
+  "engines": {
+    "node": ">=16"
+  },
+  "type": "module",
+  "files": [
+    "dist/"
+  ],
+  "exports": {
+    "types": "./dist/index.d.cts",
+    "default": "./dist/index.cjs"
+  },
+  "sideEffects": false,
+  "dependencies": {
+    "@babel/core": "^7.0.0",
+    "@babel/preset-env": "^7.0.0"
+  },
+  "peerDependencies": {
+    "webpack": "^5.0.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^2.1.4",
+    "@eslint/js": "^8.55.0",
+    "@types/babel__core": "^7.20.5",
+    "@types/eslint-config-prettier": "^6.11.3",
+    "@types/eslint__eslintrc": "^2.1.1",
+    "@types/eslint__js": "^8.42.3",
+    "@types/node": "^20.10.4",
+    "@typescript-eslint/eslint-plugin": "^6.14.0",
+    "@typescript-eslint/parser": "^6.14.0",
+    "eslint": "^8.55.0",
+    "eslint-config-prettier": "^9.1.0",
+    "prettier": "^3.1.1",
+    "typescript": "^5.3.3",
+    "webpack": "^5.89.0"
+  }
+}

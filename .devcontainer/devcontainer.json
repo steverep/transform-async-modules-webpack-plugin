@@ -1,0 +1,39 @@
+{
+  "name": "Transform Async Modules Webpack Plugin",
+  "image": "mcr.microsoft.com/devcontainers/base:jammy",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {}
+  },
+  "postCreateCommand": "corepack enable && corepack install && yarn",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "GitHub.vscode-pull-request-github",
+        "dbaeumer.vscode-eslint",
+        "redhat.vscode-yaml",
+        "esbenp.prettier-vscode",
+        "VisualStudioExptTeam.vscodeintellicode",
+        "github.vscode-github-actions",
+        "arcanis.vscode-zipfs"
+      ],
+      "settings": {
+        "search.exclude": {
+          "**/.yarn": true,
+          "**/.pnp.*": true
+        },
+        "eslint.nodePath": ".yarn/sdks",
+        "prettier.prettierPath": ".yarn/sdks/prettier/index.cjs",
+        "typescript.tsdk": ".yarn/sdks/typescript/lib",
+        "typescript.enablePromptUseWorkspaceTsdk": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true,
+        "eslint.experimental.useFlatConfig": true,
+        "eslint.runtime": "node",
+        "eslint.execArgv": [
+          "--require=${containerWorkspaceFolder}/.pnp.cjs",
+          "--loader=file://${containerWorkspaceFolder}/.pnp.loader.mjs"
+        ]
+      }
+    }
+  }
+}
