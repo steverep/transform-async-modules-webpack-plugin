@@ -38,6 +38,16 @@
     "default": "./dist/index.cjs"
   },
   "sideEffects": false,
+  "scripts": {
+    "fix": "eslint --cache --fix .",
+    "format": "prettier --cache --write .",
+    "lint": "yarn dedupe --check && eslint --cache . && prettier --cache --check .",
+    "build": "tsc",
+    "clean": "rm -rf dist",
+    "prepublish": "yarn run lint",
+    "prepack": "yarn run build",
+    "postpack": "yarn run clean"
+  },
   "dependencies": {
     "@babel/core": "^7.0.0",
     "@babel/preset-env": "^7.0.0"

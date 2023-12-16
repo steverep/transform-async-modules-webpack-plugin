@@ -45,8 +45,9 @@ node_modules/
 !.yarn/sdks
 !.yarn/versions
 
-# Compile output
+# Compile and pack output
 dist/
+*.tgz
 
 # VS Code
 .vscode/
