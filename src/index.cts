@@ -10,7 +10,7 @@ export type TransformAsyncModulesPluginOptions = Pick<
 
 const PLUGIN_NAME = "TransformAsyncModulesPlugin " as const;
 
-export default class TransformAsyncModulesPlugin {
+export class TransformAsyncModulesPlugin {
   babelOptions: TransformOptions = {};
 
   constructor(options: TransformAsyncModulesPluginOptions = {}) {

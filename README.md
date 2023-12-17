@@ -20,13 +20,15 @@ Any `devTool` (source maps) option used in Webpack is supported. This includes "
 Install the package from NPM and require or import it for your Webpack configuration:
 
 ```js
-const TransformAsyncModulesPlugin = require("transform-async-modules-webpack-plugin");
+const {
+  TransformAsyncModulesPlugin,
+} = require("transform-async-modules-webpack-plugin");
 ```
 
 or
 
 ```js
-import TransformAsyncModulesPlugin from "transform-async-modules-webpack-plugin";
+import { TransformAsyncModulesPlugin } from "transform-async-modules-webpack-plugin";
 ```
 
 Then add an instance to the plugins array:
