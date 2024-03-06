@@ -8,6 +8,7 @@ import { fileURLToPath } from "url";
 
 const allFiles = "**/*.?(c|m){js,ts}";
 const jsFiles = "**/*.?(c|m)js";
+const commonFiles = "**/*.c{js,ts}";
 
 const rootDir = dirname(fileURLToPath(import.meta.url));
 const compat = new FlatCompat({ baseDirectory: rootDir });
@@ -42,5 +43,16 @@ export default [
     linterOptions: {
       reportUnusedDisableDirectives: true,
     },
+  },
+  {
+    files: [commonFiles],
+    languageOptions: {
+      sourceType: "commonjs",
+      globals: globals.commonjs,
+    },
+  },
+  {
+    files: ["test/**/*.spec.?(c|m)ts"],
+    languageOptions: { globals: globals.mocha },
   },
 ];

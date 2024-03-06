@@ -25,7 +25,7 @@
     "type": "github",
     "url": "https://github.com/sponsors/steverep"
   },
-  "packageManager": "yarn@4.0.2",
+  "packageManager": "yarn@4.1.1",
   "engines": {
     "node": ">=16"
   },
@@ -41,6 +41,7 @@
     "format": "prettier --cache --write .",
     "lint": "yarn dedupe --check && eslint --cache . && prettier --cache --check .",
     "build": "tsc",
+    "test": "mocha",
     "clean": "rm -rf dist",
     "prepublish": "yarn run lint",
     "prepack": "yarn run build",
@@ -57,16 +58,21 @@
     "@eslint/eslintrc": "^2.1.4",
     "@eslint/js": "^8.56.0",
     "@types/babel__core": "^7.20.5",
+    "@types/chai": "^4",
     "@types/eslint-config-prettier": "^6.11.3",
     "@types/eslint__eslintrc": "^2.1.1",
     "@types/eslint__js": "^8.42.3",
-    "@types/node": "^20.10.4",
+    "@types/mocha": "^10",
+    "@types/node": "^20.11.25",
     "@typescript-eslint/eslint-plugin": "^6.14.0",
     "@typescript-eslint/parser": "^6.14.0",
+    "chai": "^4",
     "eslint": "^8.56.0",
     "eslint-config-prettier": "^9.1.0",
     "globals": "^13.24.0",
+    "mocha": "^10.3.0",
     "prettier": "^3.1.1",
+    "ts-node": "^10.9.2",
     "typescript": "^5.3.3",
     "webpack": "^5.89.0"
   }

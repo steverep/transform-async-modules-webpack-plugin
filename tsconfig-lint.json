@@ -1,6 +1,6 @@
 {
   "extends": "./tsconfig.json",
-  "include": ["src/**/*", "test/**/*", "*.config.js"],
+  "include": ["src/**/*", "test/**/*", "*.config.js", ".*rc.cjs"],
   "compilerOptions": {
     "noEmit": true
   }
