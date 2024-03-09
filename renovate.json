@@ -1,0 +1,25 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "configMigration": true,
+  "extends": [
+    ":label(Dependencies)",
+    ":pinDevDependencies",
+    ":semanticCommitsDisabled",
+    "group:monorepos",
+    "group:recommended",
+    "replacements:all",
+    "workarounds:all",
+    "npm:unpublishSafe"
+  ],
+  "enabledManagers": ["github-actions", "npm", "nvm"],
+  "ignorePaths": ["**/node_modules/**", "**/.yarn/sdks/**"],
+  "postUpdateOptions": ["yarnDedupeHighest"],
+  "timezone": "America/New_York",
+  "schedule": ["before 6am on Monday"],
+
+  "lockFileMaintenance": {
+    "enabled": true,
+    "schedule": ["on the 1st day of the month before 6am"]
+  },
+  "osvVulnerabilityAlerts": true
+}
