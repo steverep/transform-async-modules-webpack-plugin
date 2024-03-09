@@ -15,7 +15,7 @@
   "ignorePaths": ["**/node_modules/**", "**/.yarn/sdks/**"],
   "postUpdateOptions": ["yarnDedupeHighest"],
   "timezone": "America/New_York",
-  "schedule": ["before 6am on Monday"],
+  "schedule": ["before 6am on Sunday"],
 
   "lockFileMaintenance": {
     "enabled": true,
