@@ -3063,12 +3063,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"globals@npm:13.24.0, globals@npm:^13.19.0":
-  version: 13.24.0
-  resolution: "globals@npm:13.24.0"
-  dependencies:
-    type-fest: "npm:^0.20.2"
-  checksum: 10c0/79c22142285563aa38179e9a7d60e01262c181325547bd6924d376a7baa11d2fe0a5f27021f00ccba8be3c36dd6f22d6fa0d07d4298658f786e955fa651999f4
+"globals@npm:14.0.0, globals@npm:^14.0.0":
+  version: 14.0.0
+  resolution: "globals@npm:14.0.0"
+  checksum: 10c0/b96ff42620c9231ad468d4c58ff42afee7777ee1c963013ff8aabe095a451d0ceeb8dcd8ef4cbd64d2538cef45f787a78ba3a9574f4a634438963e334471302d
   languageName: node
   linkType: hard
 
@@ -3079,10 +3077,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"globals@npm:^14.0.0":
-  version: 14.0.0
-  resolution: "globals@npm:14.0.0"
-  checksum: 10c0/b96ff42620c9231ad468d4c58ff42afee7777ee1c963013ff8aabe095a451d0ceeb8dcd8ef4cbd64d2538cef45f787a78ba3a9574f4a634438963e334471302d
+"globals@npm:^13.19.0":
+  version: 13.24.0
+  resolution: "globals@npm:13.24.0"
+  dependencies:
+    type-fest: "npm:^0.20.2"
+  checksum: 10c0/79c22142285563aa38179e9a7d60e01262c181325547bd6924d376a7baa11d2fe0a5f27021f00ccba8be3c36dd6f22d6fa0d07d4298658f786e955fa651999f4
   languageName: node
   linkType: hard
 
@@ -4489,7 +4489,7 @@ __metadata:
     chai: "npm:4.4.1"
     eslint: "npm:8.57.0"
     eslint-config-prettier: "npm:9.1.0"
-    globals: "npm:13.24.0"
+    globals: "npm:14.0.0"
     mocha: "npm:10.3.0"
     prettier: "npm:3.2.5"
     ts-node: "npm:10.9.2"
