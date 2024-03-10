@@ -55,7 +55,7 @@
     "webpack": "^5.0.0"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "2.1.4",
+    "@eslint/eslintrc": "3.0.2",
     "@eslint/js": "8.57.0",
     "@types/babel__core": "7.20.5",
     "@types/chai": "4.3.12",
