@@ -16,7 +16,6 @@
   "postUpdateOptions": ["yarnDedupeHighest"],
   "timezone": "America/New_York",
   "schedule": ["before 6am on Sunday"],
-
   "lockFileMaintenance": {
     "enabled": true,
     "schedule": ["on the 1st day of the month before 6am"]
