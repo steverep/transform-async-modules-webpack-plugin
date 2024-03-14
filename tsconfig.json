@@ -1,4 +1,7 @@
 {
+  // Default is to type check non-src files and let ts-node transpile
+  "include": ["*.config.*", "test/"],
+  "exclude": ["**/dist/"],
   "references": [
     {
       "path": "src"
@@ -9,6 +12,7 @@
     "target": "ES2021",
     // Modules
     "module": "Node16",
+    "rootDir": ".",
     // Emit/Project (only type check with cache)
     "noEmit": true,
     "incremental": true,

@@ -44,9 +44,7 @@ jobs:
         run: yarn run lint:js
       - name: Check format
         run: yarn run lint:format
-      - name: Check types
-        run: yarn run lint:types
       - name: Build package
         run: yarn run build
-      #- name: Run Tests
-      #run: yarn run test
+      - name: Run Tests
+        run: yarn run test
