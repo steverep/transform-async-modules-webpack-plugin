@@ -25,6 +25,11 @@ jobs:
           node-version-file: ".nvmrc"
       - name: Setup yarn with corepack
         run: corepack enable && corepack install
+      - name: Setup Node again with yarn cache
+        uses: actions/setup-node@v4.0.2
+        with:
+          node-version-file: ".nvmrc"
+          cache: yarn
       - name: Install dependencies
         run: yarn install --immutable
       - name: Check for duplicate dependencies
