@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  all:
+    name: Lint, check format, build, and test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4.1.1
+      - name: Setup Node
+        uses: actions/setup-node@v4.0.2
+        with:
+          node-version-file: ".nvmrc"
+      - name: Setup yarn with corepack
+        run: corepack enable && corepack install
+      - name: Setup Node again with yarn cache
+        uses: actions/setup-node@v4.0.2
+        with:
+          node-version-file: ".nvmrc"
+          cache: yarn
+      - name: Install dependencies
+        run: yarn install --immutable
+      - name: Check for duplicate dependencies
+        run: yarn dedupe --check
+      - name: Setup tools cache
+        uses: actions/cache@v4.0.1
+        with:
+          path: node_modules/.cache
+          key: tools-${{ github.sha }}
+          restore-keys: tools-
+      - name: Check javascript and typescript
+        run: yarn run lint:js
+      - name: Check format
+        run: yarn run lint:format
+      - name: Build package
+        run: yarn run build
+      #- name: Run Tests
+      #run: yarn run test
