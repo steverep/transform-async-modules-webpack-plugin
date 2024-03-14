@@ -37,9 +37,11 @@
   "types": "./dist/index.d.cts",
   "sideEffects": false,
   "scripts": {
-    "fix": "eslint --cache --fix .",
+    "lint:js": "eslint --cache --cache-strategy=content --cache-location=node_modules/.cache/eslint/.eslintcache .",
+    "fix": "yarn run lint:js --fix",
     "format": "prettier --cache --write .",
-    "lint": "yarn dedupe --check && eslint --cache . && prettier --cache --check .",
+    "lint:format": "prettier --cache --check .",
+    "lint": "yarn dedupe --check && yarn run lint:js && yarn run lint:format",
     "build": "tsc",
     "test": "mocha",
     "clean": "rm -rf dist",

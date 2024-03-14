@@ -11,6 +11,9 @@
     "declarationMap": true,
     "sourceMap": true,
     "outDir": "dist",
+    // Caching
+    "incremental": true,
+    "tsBuildInfoFile": "node_modules/.cache/typescript/.tsbuildinfo",
     // Interop Constraints
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
