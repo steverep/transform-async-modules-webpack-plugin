@@ -34,16 +34,18 @@ jobs:
         run: yarn install --immutable
       - name: Check for duplicate dependencies
         run: yarn dedupe --check
-      - name: Setup tools cache
+      - name: Setup lint cache
         uses: actions/cache@v4.0.1
         with:
           path: node_modules/.cache
-          key: tools-${{ github.sha }}
-          restore-keys: tools-
+          key: lint-${{ github.sha }}
+          restore-keys: lint-
       - name: Check javascript and typescript
         run: yarn run lint:js
       - name: Check format
         run: yarn run lint:format
+      - name: Check types
+        run: yarn run lint:types
       - name: Build package
         run: yarn run build
       #- name: Run Tests

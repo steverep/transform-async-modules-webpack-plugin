@@ -31,7 +31,8 @@
   },
   "type": "module",
   "files": [
-    "dist/"
+    "dist/",
+    "!dist/*.tsbuildinfo"
   ],
   "exports": "./dist/index.cjs",
   "types": "./dist/index.d.cts",
@@ -41,10 +42,11 @@
     "fix": "yarn run lint:js --fix",
     "format": "prettier --cache --write .",
     "lint:format": "prettier --cache --check .",
-    "lint": "yarn dedupe --check && yarn run lint:js && yarn run lint:format",
-    "build": "tsc",
-    "test": "mocha",
-    "clean": "rm -rf dist",
+    "lint:types": "tsc",
+    "lint": "yarn dedupe --check && yarn run lint:js && yarn run lint:format && yarn run lint:types",
+    "build": "tsc --build src",
+    "test": "mocha --config mocha.config.cjs",
+    "clean": "tsc --build --clean",
     "prepublish": "yarn run lint",
     "prepack": "yarn run build",
     "postpack": "yarn run clean"
