@@ -36,7 +36,7 @@ export default [
       parser: typescriptParser,
       parserOptions: {
         ecmaVersion: "latest",
-        project: "tsconfig-lint.json",
+        project: "tsconfig.json",
         tsconfigRootDir: rootDir,
       },
     },

@@ -1,19 +1,20 @@
 {
-  "include": ["src/**/*"],
+  "references": [
+    {
+      "path": "src"
+    }
+  ],
   "compilerOptions": {
     // Language and Environment
     "target": "ES2021",
     // Modules
     "module": "Node16",
-    "rootDir": "src",
-    // Emit
-    "declaration": true,
-    "declarationMap": true,
-    "sourceMap": true,
-    "outDir": "dist",
-    // Caching
+    // Emit/Project (only type check with cache)
+    "noEmit": true,
     "incremental": true,
-    "tsBuildInfoFile": "node_modules/.cache/typescript/.tsbuildinfo",
+    "outDir": "node_modules/.cache/typescript",
+    // JavaScript Support
+    "allowJs": true,
     // Interop Constraints
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
