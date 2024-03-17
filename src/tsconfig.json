@@ -1,6 +1,9 @@
 {
   "extends": "../tsconfig.json",
+  "include": ["./"],
   "compilerOptions": {
+    // Modules
+    "rootDir": ".",
     // Emit
     "noEmit": false,
     "declaration": true,

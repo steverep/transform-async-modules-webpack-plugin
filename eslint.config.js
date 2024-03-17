@@ -14,7 +14,7 @@ const rootDir = dirname(fileURLToPath(import.meta.url));
 const compat = new FlatCompat({ baseDirectory: rootDir });
 
 export default [
-  { ignores: [".yarn/", ".pnp.*", "dist/"] },
+  { ignores: [".yarn/", ".pnp.*", "**/dist/"] },
   { files: [allFiles], ...eslintJS.configs.recommended },
   ...compat
     .extends(
@@ -35,9 +35,9 @@ export default [
       // Options specific to @typescript-eslint/parser
       parser: typescriptParser,
       parserOptions: {
+        allowAutomaticSingleRunInference: true,
         ecmaVersion: "latest",
-        project: "tsconfig.json",
-        tsconfigRootDir: rootDir,
+        EXPERIMENTAL_useProjectService: true,
       },
     },
     linterOptions: {
@@ -54,5 +54,8 @@ export default [
   {
     files: ["test/**/*.spec.?(c|m)ts"],
     languageOptions: { globals: globals.mocha },
+    rules: {
+      "@typescript-eslint/require-await": "off",
+    },
   },
 ];
