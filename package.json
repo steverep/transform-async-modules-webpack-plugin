@@ -1,7 +1,7 @@
 {
   "name": "transform-async-modules-webpack-plugin",
   "description": "A Webpack plugin to transpile async module output using Babel. Allows transpiling top level await to ES5.",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "license": "MIT",
   "homepage": "https://github.com/steverep/transform-async-modules-webpack-plugin",
   "keywords": [
