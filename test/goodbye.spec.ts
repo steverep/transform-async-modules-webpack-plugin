@@ -14,13 +14,14 @@ const CHECK_CHUNKS = ["goodbye", "parent"] as const;
 for (const nodeVersion of [8, 6, 0.12]) {
   describe(`Goodbye delay with node ${nodeVersion} target`, function () {
     const outDir = join(context, "dist", `v${nodeVersion}`);
-    let compileProblems = "";
+    const configName = `goodbye-v${nodeVersion}`;
+    let log: string | undefined;
 
     before("Run Webpack", function (done) {
       this.timeout("5s");
       webpack(
         {
-          name: `goodbye-node${nodeVersion}`,
+          name: configName,
           context,
           entry: Object.fromEntries(
             ENTRY_NAMES.map((name) => [name, `./src/${name}.js`]),
@@ -43,16 +44,14 @@ for (const nodeVersion of [8, 6, 0.12]) {
           node: false,
         },
         (err, stats) => {
-          if (stats?.hasErrors()) {
-            compileProblems = stats.toString("errors-only");
-          }
+          log = stats?.toString("errors-warnings");
           done(err);
         },
       );
     });
 
-    it("Compiles without errors", async function () {
-      expect(compileProblems, compileProblems).to.be.empty;
+    it("Compiles without errors or warnings", async function () {
+      expect(log, log).to.equal(`${configName} compiled successfully`);
     });
 
     for (const name of CHECK_CHUNKS) {
