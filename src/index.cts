@@ -26,6 +26,11 @@ export class TransformAsyncModulesPlugin {
   }
 
   apply(compiler: Compiler) {
+    // Ignore the warning that environment won't support async
+    (compiler.options.ignoreWarnings ??= []).push(
+      (warning) => warning.name === "EnvironmentNotSupportAsyncWarning",
+    );
+
     // Pull some classes from the compiler's Webpack instance
     const { SourceMapSource } = compiler.webpack.sources;
     const { JavascriptModulesPlugin } = compiler.webpack.javascript;
