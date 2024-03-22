@@ -4505,6 +4505,8 @@ __metadata:
     typescript: "npm:5.4.2"
     webpack: "npm:5.90.3"
   peerDependencies:
+    "@babel/core": ^7.13.0
+    "@babel/preset-env": ^7.13.0
     webpack: ^5.0.0
   languageName: unknown
   linkType: soft
