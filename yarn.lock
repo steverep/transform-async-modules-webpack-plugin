@@ -1620,10 +1620,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/chai@npm:4.3.12":
-  version: 4.3.12
-  resolution: "@types/chai@npm:4.3.12"
-  checksum: 10c0/e5d952726d7f053812579962b07d0e4965c160c6a90bf466580e639cd3a1f1d30da1abbfe782383538a043a07908f9dfb823fa9065b37752a5f27d62234f44d5
+"@types/chai@npm:4.3.14":
+  version: 4.3.14
+  resolution: "@types/chai@npm:4.3.14"
+  checksum: 10c0/7712594c1e457cb99c7227d0fe1afcbb900bbd1369494ec2d2b0d79a383057a09ab13d23d7b300287394b99995a8c017aa55e6b9a369b77910bc10310ba504af
   languageName: node
   linkType: hard
 
@@ -4472,7 +4472,7 @@ __metadata:
     "@eslint/eslintrc": "npm:3.0.2"
     "@eslint/js": "npm:8.57.0"
     "@types/babel__core": "npm:7.20.5"
-    "@types/chai": "npm:4.3.12"
+    "@types/chai": "npm:4.3.14"
     "@types/eslint-config-prettier": "npm:6.11.3"
     "@types/eslint__eslintrc": "npm:2.1.1"
     "@types/eslint__js": "npm:8.42.3"
