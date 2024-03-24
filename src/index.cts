@@ -8,7 +8,7 @@ export type TransformAsyncModulesPluginOptions = Pick<
   "browserslistConfigFile" | "browserslistEnv" | "targets"
 >;
 
-const PLUGIN_NAME = "TransformAsyncModulesPlugin " as const;
+const PLUGIN_NAME = "TransformAsyncModulesPlugin ";
 
 export class TransformAsyncModulesPlugin {
   babelOptions: TransformOptions = {};
