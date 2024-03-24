@@ -3,6 +3,7 @@ module.exports = {
   loader: ["ts-node/esm", "./.pnp.loader.mjs"],
   asyncOnly: true,
   forbidOnly: true,
+  enableSourceMaps: true,
   spec: ["test/**/*.spec.*"],
   watchFiles: ["src"],
 };
