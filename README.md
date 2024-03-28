@@ -1,5 +1,7 @@
 # Transform Async Modules Webpack Plugin
 
+[![NPM Version](https://img.shields.io/npm/v/transform-async-modules-webpack-plugin)](https://www.npmjs.com/package/transform-async-modules-webpack-plugin)
+
 ## What it solves
 
 [Webpack](https://webpack.js.org) converts uses of top level `await` expressions into modules that are wrapped in an `async function`. Since transpilation usually happens when modules are loaded, the resulting chunks still contain these wrappers. Thus they are not compatible with legacy browsers or other environments that do not support ES2017 or later.
