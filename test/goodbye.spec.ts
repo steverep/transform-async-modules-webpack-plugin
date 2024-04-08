@@ -1,5 +1,6 @@
 import { expect } from "chai";
 import { readFile } from "node:fs/promises";
+import { createRequire } from "node:module";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { TransformAsyncModulesPlugin } from "transform-async-modules-webpack-plugin";
@@ -7,6 +8,9 @@ import webpack from "webpack";
 
 type GoodbyeEntry = typeof import("./src/simple.js");
 
+const require = createRequire(import.meta.url);
+const { devDependencies } =
+  require("../package.json") as typeof import("../package.json");
 const context = fileURLToPath(new URL(".", import.meta.url));
 const ENTRY_NAMES = ["simple", "chained"] as const;
 const CHUNK_CHECKS = { goodbye: 1, parent: 2 } as const;
@@ -17,7 +21,7 @@ const numMatchesTest = (file: string, pattern: RegExp, nMatches: number) =>
     expect(code.match(new RegExp(pattern, "g"))?.length).to.equal(nMatches);
   };
 
-for (const runtime of [false, { version: "7.24" }]) {
+for (const runtime of [false, { version: devDependencies["@babel/runtime"] }]) {
   const dashRuntime = runtime ? "-runtime" : "";
   for (const nodeVersion of [8, 6, 0.12]) {
     describe(`Goodbye delay with node ${nodeVersion} target${runtime ? " using runtime" : ""}`, function () {
