@@ -68,11 +68,8 @@ for (const runtime of [false, { version: devDependencies["@babel/runtime"] }]) {
         );
       });
 
-      it("Compiles without errors or warnings", async function () {
-        expect(log).to.match(
-          new RegExp(`${configName} compiled successfully$`),
-          log,
-        );
+      it("Compiles with correct debug log", async function () {
+        expect(log).to.matchSnapshot();
       });
 
       for (const [name, nMatches] of Object.entries(CHUNK_CHECKS)) {
