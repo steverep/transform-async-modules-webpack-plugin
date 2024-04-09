@@ -62,7 +62,7 @@
     "webpack": "^5.0.0"
   },
   "devDependencies": {
-    "@babel/runtime": "7.24.1",
+    "@babel/runtime": "7.24.4",
     "@eslint/eslintrc": "3.0.2",
     "@eslint/js": "8.57.0",
     "@types/babel__core": "7.20.5",
