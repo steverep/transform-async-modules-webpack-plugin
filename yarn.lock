@@ -137,6 +137,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/helper-define-polyfill-provider@npm:^0.5.0":
+  version: 0.5.0
+  resolution: "@babel/helper-define-polyfill-provider@npm:0.5.0"
+  dependencies:
+    "@babel/helper-compilation-targets": "npm:^7.22.6"
+    "@babel/helper-plugin-utils": "npm:^7.22.5"
+    debug: "npm:^4.1.1"
+    lodash.debounce: "npm:^4.0.8"
+    resolve: "npm:^1.14.2"
+  peerDependencies:
+    "@babel/core": ^7.4.0 || ^8.0.0-0 <8.0.0
+  checksum: 10c0/2b053b96a0c604a7e0f5c7d13a8a55f4451d938f7af42bd40f62a87df15e6c87a0b1dbd893a0f0bb51077b54dc3ba00a58b166531a5940ad286ab685dd8979ec
+  languageName: node
+  linkType: hard
+
 "@babel/helper-define-polyfill-provider@npm:^0.6.1":
   version: 0.6.1
   resolution: "@babel/helper-define-polyfill-provider@npm:0.6.1"
@@ -1064,6 +1079,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/plugin-transform-runtime@npm:^7.13.0":
+  version: 7.24.0
+  resolution: "@babel/plugin-transform-runtime@npm:7.24.0"
+  dependencies:
+    "@babel/helper-module-imports": "npm:^7.22.15"
+    "@babel/helper-plugin-utils": "npm:^7.24.0"
+    babel-plugin-polyfill-corejs2: "npm:^0.4.8"
+    babel-plugin-polyfill-corejs3: "npm:^0.9.0"
+    babel-plugin-polyfill-regenerator: "npm:^0.5.5"
+    semver: "npm:^6.3.1"
+  peerDependencies:
+    "@babel/core": ^7.0.0-0
+  checksum: 10c0/a632e0c6f4b1be21955646ba4f6e4af323daaa6ab68ce39f92f5186d444402e920b33cabd40759c36f72d8c36f256a35ea03060e407ca69bcf373fdcb450aa42
+  languageName: node
+  linkType: hard
+
 "@babel/plugin-transform-shorthand-properties@npm:^7.24.1":
   version: 7.24.1
   resolution: "@babel/plugin-transform-shorthand-properties@npm:7.24.1"
@@ -1277,7 +1308,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.8.4":
+"@babel/runtime@npm:7.24.1, @babel/runtime@npm:^7.8.4":
   version: 7.24.1
   resolution: "@babel/runtime@npm:7.24.1"
   dependencies:
@@ -1601,6 +1632,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/babel__plugin-transform-runtime@npm:7.9.5":
+  version: 7.9.5
+  resolution: "@types/babel__plugin-transform-runtime@npm:7.9.5"
+  checksum: 10c0/119d8f88188c63eb21bf150d294991d3470e6aa90dc8ec9f634197760af8acc981564e29af9087bfa8ad713b5b5419cae03047cd225fccb9977bb97adf25a871
+  languageName: node
+  linkType: hard
+
+"@types/babel__preset-env@npm:7.9.6":
+  version: 7.9.6
+  resolution: "@types/babel__preset-env@npm:7.9.6"
+  checksum: 10c0/639bcf58094530eb8509b302de9c42fc1a9e44e236bcbfd218e987aba7a2c15052c3a1cac7ca7f260255e74beb3b489ff877b9870f8587394457cd3aa9f64934
+  languageName: node
+  linkType: hard
+
 "@types/babel__template@npm:*":
   version: 7.4.4
   resolution: "@types/babel__template@npm:7.4.4"
@@ -1620,7 +1665,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/chai@npm:4.3.14":
+"@types/chai-jest-snapshot@npm:1.3.8":
+  version: 1.3.8
+  resolution: "@types/chai-jest-snapshot@npm:1.3.8"
+  dependencies:
+    "@types/chai": "npm:*"
+    "@types/mocha": "npm:*"
+  checksum: 10c0/3f987a959a6707e502449a5f7d6314d6276ed165a149c7c4d6d7a51863ac3c7e4a5d5cf6b79943418b06c4509d32f2d90ccee9c80d426a1052aea7ecb7e941df
+  languageName: node
+  linkType: hard
+
+"@types/chai@npm:*, @types/chai@npm:4.3.14":
   version: 4.3.14
   resolution: "@types/chai@npm:4.3.14"
   checksum: 10c0/7712594c1e457cb99c7227d0fe1afcbb900bbd1369494ec2d2b0d79a383057a09ab13d23d7b300287394b99995a8c017aa55e6b9a369b77910bc10310ba504af
@@ -1686,7 +1741,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/mocha@npm:10.0.6":
+"@types/mocha@npm:*, @types/mocha@npm:10.0.6":
   version: 10.0.6
   resolution: "@types/mocha@npm:10.0.6"
   checksum: 10c0/4526c9e88388f9e1004c6d3937c5488a39908810f26b927173c58d52b43057f3895627dc06538e96706e08b88158885f869ec6311f6b58fd72bdef715f26d6c3
@@ -2092,6 +2147,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ansi-regex@npm:^3.0.0":
+  version: 3.0.1
+  resolution: "ansi-regex@npm:3.0.1"
+  checksum: 10c0/d108a7498b8568caf4a46eea4f1784ab4e0dfb2e3f3938c697dee21443d622d765c958f2b7e2b9f6b9e55e2e2af0584eaa9915d51782b89a841c28e744e7a167
+  languageName: node
+  linkType: hard
+
 "ansi-regex@npm:^5.0.1":
   version: 5.0.1
   resolution: "ansi-regex@npm:5.0.1"
@@ -2106,7 +2168,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ansi-styles@npm:^3.2.1":
+"ansi-styles@npm:^3.2.0, ansi-styles@npm:^3.2.1":
   version: 3.2.1
   resolution: "ansi-styles@npm:3.2.1"
   dependencies:
@@ -2169,7 +2231,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"babel-plugin-polyfill-corejs2@npm:^0.4.10":
+"babel-plugin-polyfill-corejs2@npm:^0.4.10, babel-plugin-polyfill-corejs2@npm:^0.4.8":
   version: 0.4.10
   resolution: "babel-plugin-polyfill-corejs2@npm:0.4.10"
   dependencies:
@@ -2191,6 +2253,29 @@ __metadata:
   peerDependencies:
     "@babel/core": ^7.4.0 || ^8.0.0-0 <8.0.0
   checksum: 10c0/31b92cd3dfb5b417da8dfcf0deaa4b8b032b476d7bb31ca51c66127cf25d41e89260e89d17bc004b2520faa38aa9515fafabf81d89f9d4976e9dc1163e4a7c41
+  languageName: node
+  linkType: hard
+
+"babel-plugin-polyfill-corejs3@npm:^0.9.0":
+  version: 0.9.0
+  resolution: "babel-plugin-polyfill-corejs3@npm:0.9.0"
+  dependencies:
+    "@babel/helper-define-polyfill-provider": "npm:^0.5.0"
+    core-js-compat: "npm:^3.34.0"
+  peerDependencies:
+    "@babel/core": ^7.4.0 || ^8.0.0-0 <8.0.0
+  checksum: 10c0/b857010736c5e42e20b683973dae862448a42082fcc95b3ef188305a6864a4f94b5cbd568e49e4cd7172c6b2eace7bc403c3ba0984fbe5479474ade01126d559
+  languageName: node
+  linkType: hard
+
+"babel-plugin-polyfill-regenerator@npm:^0.5.5":
+  version: 0.5.5
+  resolution: "babel-plugin-polyfill-regenerator@npm:0.5.5"
+  dependencies:
+    "@babel/helper-define-polyfill-provider": "npm:^0.5.0"
+  peerDependencies:
+    "@babel/core": ^7.4.0 || ^8.0.0-0 <8.0.0
+  checksum: 10c0/2aab692582082d54e0df9f9373dca1b223e65b4e7e96440160f27ed8803d417a1fa08da550f08aa3820d2010329ca91b68e2b6e9bd7aed51c93d46dfe79629bb
   languageName: node
   linkType: hard
 
@@ -2316,6 +2401,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"chai-jest-snapshot@npm:2.0.0":
+  version: 2.0.0
+  resolution: "chai-jest-snapshot@npm:2.0.0"
+  dependencies:
+    jest-snapshot: "npm:21.2.1"
+    lodash.values: "npm:^4.3.0"
+  peerDependencies:
+    chai: ">=1.9.0"
+  checksum: 10c0/4e5004d635d0fe10eaeb31c14c06aab079480302f116b37fa69bb6ab64c71da56b43179a78b4c43ac85c5c4cc74731856f5c40a1ef081cd0dff6509eb34851f8
+  languageName: node
+  linkType: hard
+
 "chai@npm:5.1.0":
   version: 5.1.0
   resolution: "chai@npm:5.1.0"
@@ -2329,7 +2426,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chalk@npm:^2.4.2":
+"chalk@npm:^2.0.1, chalk@npm:^2.4.2":
   version: 2.4.2
   resolution: "chalk@npm:2.4.2"
   dependencies:
@@ -2461,7 +2558,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"core-js-compat@npm:^3.31.0, core-js-compat@npm:^3.36.1":
+"core-js-compat@npm:^3.31.0, core-js-compat@npm:^3.34.0, core-js-compat@npm:^3.36.1":
   version: 3.36.1
   resolution: "core-js-compat@npm:3.36.1"
   dependencies:
@@ -2525,6 +2622,13 @@ __metadata:
   version: 5.0.0
   resolution: "diff@npm:5.0.0"
   checksum: 10c0/08c5904779bbababcd31f1707657b1ad57f8a9b65e6f88d3fb501d09a965d5f8d73066898a7d3f35981f9e4101892c61d99175d421f3b759533213c253d91134
+  languageName: node
+  linkType: hard
+
+"diff@npm:^3.2.0":
+  version: 3.5.0
+  resolution: "diff@npm:3.5.0"
+  checksum: 10c0/fc62d5ba9f6d1b8b5833380969037007913d4886997838c247c54ec6934f09ae5a07e17ae28b1f016018149d81df8ad89306f52eac1afa899e0bed49015a64d1
   languageName: node
   linkType: hard
 
@@ -3344,6 +3448,50 @@ __metadata:
   languageName: node
   linkType: hard
 
+"jest-diff@npm:^21.2.1":
+  version: 21.2.1
+  resolution: "jest-diff@npm:21.2.1"
+  dependencies:
+    chalk: "npm:^2.0.1"
+    diff: "npm:^3.2.0"
+    jest-get-type: "npm:^21.2.0"
+    pretty-format: "npm:^21.2.1"
+  checksum: 10c0/eb2062b607ad143f3f4e857cd4a48c459da005d909d246c612471f658f03145cc0333735613f597347c0b6e9fc76707e866f8abe1c80ffc3b86ac591fec7fbc1
+  languageName: node
+  linkType: hard
+
+"jest-get-type@npm:^21.2.0":
+  version: 21.2.0
+  resolution: "jest-get-type@npm:21.2.0"
+  checksum: 10c0/9f62e56ab2d9c555732f16334483971383572b7c53c79d43d3fb3fc4d8b8766fd2bb57b3eb9eb18809e9ee97e592feb374d1c137475945acd8c9b0295025032f
+  languageName: node
+  linkType: hard
+
+"jest-matcher-utils@npm:^21.2.1":
+  version: 21.2.1
+  resolution: "jest-matcher-utils@npm:21.2.1"
+  dependencies:
+    chalk: "npm:^2.0.1"
+    jest-get-type: "npm:^21.2.0"
+    pretty-format: "npm:^21.2.1"
+  checksum: 10c0/d3f10570ec4d241ab6713f45a6086483117b95458979fe6f6d1c46028c5e69e39ab11ea00a5ec7af36e9f19e77a4269ed5b9502a940e06a0dc6e37f974d85df8
+  languageName: node
+  linkType: hard
+
+"jest-snapshot@npm:21.2.1":
+  version: 21.2.1
+  resolution: "jest-snapshot@npm:21.2.1"
+  dependencies:
+    chalk: "npm:^2.0.1"
+    jest-diff: "npm:^21.2.1"
+    jest-matcher-utils: "npm:^21.2.1"
+    mkdirp: "npm:^0.5.1"
+    natural-compare: "npm:^1.4.0"
+    pretty-format: "npm:^21.2.1"
+  checksum: 10c0/bf1bac16174b36d80affe02946cded9ba3ac138396c093eecb2889492d27ebe2537586ba8b3fbe8acdd5a3c5875e54f1fa6da73c3e56542820bcb1fb4f85d7a2
+  languageName: node
+  linkType: hard
+
 "jest-worker@npm:^27.4.5":
   version: 27.5.1
   resolution: "jest-worker@npm:27.5.1"
@@ -3481,6 +3629,13 @@ __metadata:
   version: 4.6.2
   resolution: "lodash.merge@npm:4.6.2"
   checksum: 10c0/402fa16a1edd7538de5b5903a90228aa48eb5533986ba7fa26606a49db2572bf414ff73a2c9f5d5fd36b31c46a5d5c7e1527749c07cbcf965ccff5fbdf32c506
+  languageName: node
+  linkType: hard
+
+"lodash.values@npm:^4.3.0":
+  version: 4.3.0
+  resolution: "lodash.values@npm:4.3.0"
+  checksum: 10c0/f56b3da5bd3aa0006ad544c8e2e890a35b5aefcb6e3528a4c4f191f091b9edea632dd461de79ee121b5b61881cd96b7f911a309dc04f53af0e927d6a599cf1ee
   languageName: node
   linkType: hard
 
@@ -3639,6 +3794,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"minimist@npm:^1.2.6":
+  version: 1.2.8
+  resolution: "minimist@npm:1.2.8"
+  checksum: 10c0/19d3fcdca050087b84c2029841a093691a91259a47def2f18222f41e7645a0b7c44ef4b40e88a1e58a40c84d2ef0ee6047c55594d298146d0eb3f6b737c20ce6
+  languageName: node
+  linkType: hard
+
 "minipass-collect@npm:^2.0.1":
   version: 2.0.1
   resolution: "minipass-collect@npm:2.0.1"
@@ -3720,6 +3882,17 @@ __metadata:
     minipass: "npm:^3.0.0"
     yallist: "npm:^4.0.0"
   checksum: 10c0/64fae024e1a7d0346a1102bb670085b17b7f95bf6cfdf5b128772ec8faf9ea211464ea4add406a3a6384a7d87a0cd1a96263692134323477b4fb43659a6cab78
+  languageName: node
+  linkType: hard
+
+"mkdirp@npm:^0.5.1":
+  version: 0.5.6
+  resolution: "mkdirp@npm:0.5.6"
+  dependencies:
+    minimist: "npm:^1.2.6"
+  bin:
+    mkdirp: bin/cmd.js
+  checksum: 10c0/e2e2be789218807b58abced04e7b49851d9e46e88a2f9539242cc8a92c9b5c3a0b9bab360bd3014e02a140fc4fbc58e31176c408b493f8a2a6f4986bd7527b01
   languageName: node
   linkType: hard
 
@@ -3981,6 +4154,16 @@ __metadata:
   bin:
     prettier: bin/prettier.cjs
   checksum: 10c0/ea327f37a7d46f2324a34ad35292af2ad4c4c3c3355da07313339d7e554320f66f65f91e856add8530157a733c6c4a897dc41b577056be5c24c40f739f5ee8c6
+  languageName: node
+  linkType: hard
+
+"pretty-format@npm:^21.2.1":
+  version: 21.2.1
+  resolution: "pretty-format@npm:21.2.1"
+  dependencies:
+    ansi-regex: "npm:^3.0.0"
+    ansi-styles: "npm:^3.2.0"
+  checksum: 10c0/0d0712bbef27cf12fe0505e8ede1f0b030da7d8fa5eb9d2603d72b8ba6c859a23e106b055d27e5777fcdc7910057a3c5667993f7fd5474219cf5d576183d37bf
   languageName: node
   linkType: hard
 
@@ -4484,11 +4667,16 @@ __metadata:
   resolution: "transform-async-modules-webpack-plugin@workspace:."
   dependencies:
     "@babel/core": "npm:^7.13.0"
+    "@babel/plugin-transform-runtime": "npm:^7.13.0"
     "@babel/preset-env": "npm:^7.13.0"
+    "@babel/runtime": "npm:7.24.1"
     "@eslint/eslintrc": "npm:3.0.2"
     "@eslint/js": "npm:8.57.0"
     "@types/babel__core": "npm:7.20.5"
+    "@types/babel__plugin-transform-runtime": "npm:7.9.5"
+    "@types/babel__preset-env": "npm:7.9.6"
     "@types/chai": "npm:4.3.14"
+    "@types/chai-jest-snapshot": "npm:1.3.8"
     "@types/eslint-config-prettier": "npm:6.11.3"
     "@types/eslint__eslintrc": "npm:2.1.1"
     "@types/eslint__js": "npm:8.42.3"
@@ -4497,6 +4685,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": "npm:7.5.0"
     "@typescript-eslint/parser": "npm:7.5.0"
     chai: "npm:5.1.0"
+    chai-jest-snapshot: "npm:2.0.0"
     eslint: "npm:8.57.0"
     eslint-config-prettier: "npm:9.1.0"
     globals: "npm:15.0.0"
@@ -4507,7 +4696,9 @@ __metadata:
     webpack: "npm:5.91.0"
   peerDependencies:
     "@babel/core": ^7.13.0
+    "@babel/plugin-transform-runtime": ^7.13.0
     "@babel/preset-env": ^7.13.0
+    "@babel/runtime": ^7.13.0
     webpack: ^5.0.0
   languageName: unknown
   linkType: soft

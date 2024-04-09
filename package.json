@@ -36,7 +36,6 @@
   ],
   "exports": "./dist/index.cjs",
   "types": "./dist/index.d.cts",
-  "sideEffects": false,
   "scripts": {
     "lint:js": "eslint --cache-location=node_modules/.cache/eslint/.eslintcache .",
     "lint:format": "prettier --cache --check .",
@@ -52,18 +51,25 @@
   },
   "dependencies": {
     "@babel/core": "^7.13.0",
+    "@babel/plugin-transform-runtime": "^7.13.0",
     "@babel/preset-env": "^7.13.0"
   },
   "peerDependencies": {
     "@babel/core": "^7.13.0",
+    "@babel/plugin-transform-runtime": "^7.13.0",
     "@babel/preset-env": "^7.13.0",
+    "@babel/runtime": "^7.13.0",
     "webpack": "^5.0.0"
   },
   "devDependencies": {
+    "@babel/runtime": "7.24.1",
     "@eslint/eslintrc": "3.0.2",
     "@eslint/js": "8.57.0",
     "@types/babel__core": "7.20.5",
+    "@types/babel__plugin-transform-runtime": "7.9.5",
+    "@types/babel__preset-env": "7.9.6",
     "@types/chai": "4.3.14",
+    "@types/chai-jest-snapshot": "1.3.8",
     "@types/eslint-config-prettier": "6.11.3",
     "@types/eslint__eslintrc": "2.1.1",
     "@types/eslint__js": "8.42.3",
@@ -72,6 +78,7 @@
     "@typescript-eslint/eslint-plugin": "7.5.0",
     "@typescript-eslint/parser": "7.5.0",
     "chai": "5.1.0",
+    "chai-jest-snapshot": "2.0.0",
     "eslint": "8.57.0",
     "eslint-config-prettier": "9.1.0",
     "globals": "15.0.0",

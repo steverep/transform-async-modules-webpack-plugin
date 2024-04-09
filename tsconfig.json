@@ -12,6 +12,7 @@
     "target": "ES2021",
     // Modules
     "module": "Node16",
+    "resolveJsonModule": true,
     "rootDir": ".",
     // Emit/Project (only type check with cache)
     "noEmit": true,

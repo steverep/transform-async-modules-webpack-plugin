@@ -8,7 +8,7 @@
 
 ## How it works
 
-The plugin works by transforming async modules using [`@babel/preset-env`](https://babeljs.io/docs/babel-preset-env) right before they are ready to be written to a chunk. It is expected that modules are already transpiled using [`babel-loader`](https://www.npmjs.com/package/babel-loader), so the primary transformations occurring are simply to the `async function`:
+The plugin works by transforming async modules using [Babel](https://babeljs.io) right before they are ready to be written to a chunk. It is expected that modules are already transpiled (e.g. by using [`babel-loader`](https://www.npmjs.com/package/babel-loader)), so the primary transformations occurring are simply to the `async function`:
 
 1. [`@babel/plugin-transform-async-to-generator`](https://babeljs.io/docs/babel-plugin-transform-async-to-generator) to convert to a generator function, and
 2. [`@babel/plugin-transform-regenerator`](https://babeljs.io/docs/babel-plugin-transform-regenerator) to convert the ES2015 generator
@@ -47,12 +47,30 @@ export default {
 
 ## Options
 
-The options passed to the plugin are optional. Properties are a subset of [Babel options to specify targets](https://babeljs.io/docs/options#output-targets), and are passed directly to the transform function.
+The plugin takes the following options, all of which are optional:
 
 ```ts
 interface TransformAsyncModulesPluginOptions {
-  targets?: Targets; // see Babel docs for details
+  targets?: Targets;
   browserslistConfigFile?: boolean;
   browserslistEnv?: string;
+  runtime?: boolean | RuntimeOptions;
 }
 ```
+
+### targets, browserslistConfigFile, and browserslistEnv
+
+Controls how the async modules will be transpiled. These properties are a subset of [Babel options to specify targets](https://babeljs.io/docs/options#output-targets), and are passed directly to Babel.
+
+### runtime
+
+Allows importing helpers and regenerator from `@babel/runtime` instead of repeating them for each async module. If it is falsey, the runtime will not be used. This option takes a subset of relevant [options for `@babel/plugin-transform-runtime`](https://babeljs.io/docs/babel-plugin-transform-runtime#options):
+
+```ts
+interface RuntimeOptions {
+  absoluteRuntime?: boolean | string;
+  version?: string;
+}
+```
+
+The default for `version` is the minimum required version for the plugin, so it is recommended this property be specified as the version installed when using the runtime.
