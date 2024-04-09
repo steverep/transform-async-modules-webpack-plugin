@@ -24,9 +24,7 @@ export type TransformAsyncModulesPluginOptions = Pick<
   BabelOptions,
   "browserslistConfigFile" | "browserslistEnv" | "targets"
 > & {
-  useRuntime?:
-    | Pick<BabelRuntimeOptions, "absoluteRuntime" | "version">
-    | boolean;
+  runtime?: Pick<BabelRuntimeOptions, "absoluteRuntime" | "version"> | boolean;
 };
 
 const PLUGIN_NAME = "TransformAsyncModulesPlugin";
@@ -52,10 +50,10 @@ export class TransformAsyncModulesPlugin implements WebpackPluginInstance {
   #dependencies = new Map<string, string>();
 
   constructor({
-    useRuntime,
+    runtime,
     ...targetOptions
   }: TransformAsyncModulesPluginOptions = {}) {
-    this.#useRuntime = Boolean(useRuntime);
+    this.#useRuntime = Boolean(runtime);
     const config = loadPartialConfig({
       ...targetOptions,
       ...BABEL_DEFAULTS,
@@ -65,7 +63,7 @@ export class TransformAsyncModulesPlugin implements WebpackPluginInstance {
               "@babel/plugin-transform-runtime",
               {
                 version: peerDependencies["@babel/runtime"],
-                ...(typeof useRuntime === "object" ? useRuntime : {}),
+                ...(typeof runtime === "object" ? runtime : {}),
               } satisfies BabelRuntimeOptions,
             ],
           ]

@@ -49,7 +49,7 @@ for (const runtime of [false, { version: devDependencies["@babel/runtime"] }]) {
               new TransformAsyncModulesPlugin({
                 browserslistConfigFile: false,
                 targets: `node ${nodeVersion}`,
-                useRuntime: runtime,
+                runtime,
               }),
             ],
             devtool: "source-map",
