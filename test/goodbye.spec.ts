@@ -18,7 +18,8 @@ const CHUNK_CHECKS = { goodbye: 1, parent: 2 } as const;
 const numMatchesTest = (file: string, pattern: RegExp, nMatches: number) =>
   async function () {
     const code = await readFile(file, "utf-8");
-    expect(code.match(new RegExp(pattern, "g"))?.length).to.equal(nMatches);
+    const globalPattern = new RegExp(pattern, "g");
+    expect(code.match(globalPattern)?.length ?? 0).to.equal(nMatches);
   };
 
 for (const runtime of [false, { version: devDependencies["@babel/runtime"] }]) {
@@ -74,6 +75,7 @@ for (const runtime of [false, { version: devDependencies["@babel/runtime"] }]) {
 
       for (const [name, nMatches] of Object.entries(CHUNK_CHECKS)) {
         const outChunk = join(outDir, `src_${name}_js.cjs`);
+        let nStrict = 0; // only one at top chunk level
         if (nodeVersion < 7.6) {
           it(
             `Transpiles the async function to a generator in the ${name} chunk`,
@@ -85,6 +87,7 @@ for (const runtime of [false, { version: devDependencies["@babel/runtime"] }]) {
               nMatches,
             ),
           );
+          if (runtime) nStrict = nMatches; // because helper is included in chunk
         } else {
           it(
             `Contains async arrow function in the ${name} chunk`,
@@ -106,7 +109,12 @@ for (const runtime of [false, { version: devDependencies["@babel/runtime"] }]) {
               nMatches,
             ),
           );
+          nStrict = 0; // because asyncToGenerator hlper is split to separate chunk
         }
+        it(
+          `Does not add extra strict mode in the ${name} chunk`,
+          numMatchesTest(outChunk, /\n"use strict";/, nStrict),
+        );
       }
 
       for (const name of ENTRY_NAMES) {
