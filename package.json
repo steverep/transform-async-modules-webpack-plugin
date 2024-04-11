@@ -44,7 +44,8 @@
     "format": "prettier --cache --write .",
     "build": "tsc --build --verbose",
     "test": "mocha --config mocha.config.cjs",
-    "clean": "tsc --build --clean && rm -rf test/dist",
+    "snapshot": "CHAI_JEST_SNAPSHOT_UPDATE_ALL=true yarn run test",
+    "clean": "tsc --build --clean && rm -rf dist test/dist",
     "prepublish": "yarn run lint",
     "prepack": "yarn run build",
     "postpack": "yarn run clean"
