@@ -81,10 +81,11 @@ export class TransformAsyncDependency
       initFragments.push(
         // eslint-disable-next-line @typescript-eslint/no-unsafe-call
         new InitFragment(
-          `/* transform async */ var ${dep.#identifier} = ${exportExpr};\n`,
+          `/* ${dep.type} */ var ${dep.#identifier} = ${exportExpr};\n`,
           // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
           InitFragment.STAGE_ASYNC_BOUNDARY,
-          -1,
+          -1, // outside async function wrapper
+          `${dep.type} ${dep.request}`,
         ) as (typeof initFragments)[number],
       );
     }
