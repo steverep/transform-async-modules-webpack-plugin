@@ -36,17 +36,17 @@ export const runtimeDependencyPlugin = (): PluginObj<ThisPluginPass> => ({
         );
       }
       const localID = path.node.specifiers[0].local.name;
+      const source = path.node.source.value;
       // In record mode, just save the request and exit.
       if (this.opts.record) {
-        const dependencyID = ID_PREFIX + localID;
-        this.opts.map.set(path.node.source.value, dependencyID);
+        this.opts.map.set(source, ID_PREFIX + localID);
         return;
       }
       // Find the identifier that Webpack injected for this source.
-      const dependencyID = this.opts.map.get(path.node.source.value);
+      const dependencyID = this.opts.map.get(source);
       if (!dependencyID) {
         throw Error(
-          `Encountered a dependency that was not recorded:\n${path.getSource()}`,
+          `Encountered a dependency that was not recorded: ${source}`,
         );
       }
       // Check that the dependency was declared at the top scope, rename it,

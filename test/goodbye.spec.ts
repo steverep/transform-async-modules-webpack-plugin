@@ -12,8 +12,8 @@ const require = createRequire(import.meta.url);
 const { devDependencies } =
   require("../package.json") as typeof import("../package.json");
 const context = fileURLToPath(new URL(".", import.meta.url));
-const ENTRY_NAMES = ["simple", "chained"] as const;
-const CHUNK_CHECKS = { goodbye: 1, parent: 2 } as const;
+const ENTRY_NAMES = ["simple", "chained", "multiple"] as const;
+const CHUNK_CHECKS = { goodbye: 1, parent: 2, with2: 3 } as const;
 
 const numMatchesTest = (file: string, pattern: RegExp, nMatches: number) =>
   async function () {

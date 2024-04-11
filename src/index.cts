@@ -41,6 +41,11 @@ const BABEL_DEFAULTS: Readonly<BabelOptions> = {
   compact: false,
   sourceMaps: true,
   presets: ["@babel/preset-env"],
+  // A destructured assignment added by Webpack is also transpiled, which we can
+  // safely assume is an array.  Otherwise, Babel will introduce an extra
+  // unrecorded helper whenever an async module has multiple async dependencies.
+  // https://github.com/webpack/webpack/blob/be1d35eb02bbedb05ca6ac846fec38a563dcd47f/lib/async-modules/AwaitDependenciesInitFragment.js#L64-L69
+  assumptions: { iterableIsArray: true },
 };
 
 export class TransformAsyncModulesPlugin implements WebpackPluginInstance {
