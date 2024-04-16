@@ -16,8 +16,9 @@ exports[`Goodbye delay with node 0.12 target using runtime Compiles with correct
 "DEBUG LOG from TransformAsyncModulesPlugin
     Adding dependencies for top level await parsed in ./src/goodbye.js
     Adding dependencies for top level await parsed in ./src/another.js
-    Adding and reprocessing dependencies for ./src/parent.js
-    Adding and reprocessing dependencies for ./src/with2.js
+    Adding dependencies for 2 more modules:
+    ./src/parent.js
+    ./src/with2.js
     Transforming module ./src/goodbye.js for chunk src_goodbye_js
     Transforming module ./src/goodbye.js for chunk src_parent_js
     Transforming module ./src/parent.js for chunk src_parent_js
@@ -44,8 +45,9 @@ exports[`Goodbye delay with node 6 target using runtime Compiles with correct de
 "DEBUG LOG from TransformAsyncModulesPlugin
     Adding dependencies for top level await parsed in ./src/goodbye.js
     Adding dependencies for top level await parsed in ./src/another.js
-    Adding and reprocessing dependencies for ./src/parent.js
-    Adding and reprocessing dependencies for ./src/with2.js
+    Adding dependencies for 2 more modules:
+    ./src/parent.js
+    ./src/with2.js
     Transforming module ./src/goodbye.js for chunk src_goodbye_js
     Transforming module ./src/goodbye.js for chunk src_parent_js
     Transforming module ./src/parent.js for chunk src_parent_js
