@@ -166,16 +166,14 @@ export class TransformAsyncModulesPlugin implements WebpackPluginInstance {
         compilation.hooks.finishModules.tapPromise(
           PLUGIN_NAME,
           async (modules) => {
+            const identifiers = [];
             const processes = [];
             for (const m of modules) {
               if (
                 compilation.moduleGraph.isAsync(m) &&
                 !this.#parsedTLAModules.has(m)
               ) {
-                logger.debug(
-                  "Adding and reprocessing dependencies for",
-                  m.readableIdentifier(shortener),
-                );
+                identifiers.push(m.readableIdentifier(shortener));
                 processes.push(
                   new Promise((resolve, reject) => {
                     this.#addDependenciesToModule(m);
@@ -187,6 +185,10 @@ export class TransformAsyncModulesPlugin implements WebpackPluginInstance {
                 );
               }
             }
+            logger.debug(
+              `Adding dependencies for ${identifiers.length} more modules:\n` +
+                identifiers.sort().join("\n"),
+            );
             await Promise.all(processes);
           },
         );
