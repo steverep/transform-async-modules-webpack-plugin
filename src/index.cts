@@ -174,15 +174,25 @@ export class TransformAsyncModulesPlugin implements WebpackPluginInstance {
                 !this.#parsedTLAModules.has(m)
               ) {
                 identifiers.push(m.readableIdentifier(shortener));
-                processes.push(
-                  new Promise((resolve, reject) => {
-                    this.#addDependenciesToModule(m);
-                    compilation.processDependenciesQueue.invalidate(m);
-                    compilation.processModuleDependencies(m, (err, result) =>
-                      err ? reject(err) : resolve(result),
-                    );
-                  }),
-                );
+                // https://github.com/webpack/webpack/blob/e97af9b5317bc0e7fdbc035b98a577edfe258b83/lib/Compilation.js#L1550
+                const startIndex = m.dependencies.length;
+                this.#addDependenciesToModule(m);
+                const transformDeps = m.dependencies.slice(startIndex);
+                for (const [i, dep] of transformDeps.entries()) {
+                  compilation.moduleGraph.setParents(dep, m, m, startIndex + i);
+                  processes.push(
+                    new Promise((resolve, reject) => {
+                      compilation.handleModuleCreation(
+                        {
+                          factory: normalModuleFactory,
+                          dependencies: [dep],
+                          originModule: m,
+                        },
+                        (err, result) => (err ? reject(err) : resolve(result)),
+                      );
+                    }),
+                  );
+                }
               }
             }
             logger.debug(
@@ -196,13 +206,13 @@ export class TransformAsyncModulesPlugin implements WebpackPluginInstance {
     );
   };
 
-  #addDependenciesToModule = (module: Module) => {
+  #addDependenciesToModule(module: Module) {
     for (const [request, identifier] of this.#dependencies.entries()) {
       module.addDependency(
         new TransformAsyncDependency(request, identifier, ["default"]),
       );
     }
-  };
+  }
 
   #applyTransformHooks = (compiler: Compiler) => {
     const { SourceMapSource } = compiler.webpack.sources;
