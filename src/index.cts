@@ -208,9 +208,7 @@ export class TransformAsyncModulesPlugin implements WebpackPluginInstance {
 
   #addDependenciesToModule(module: Module) {
     for (const [request, identifier] of this.#dependencies.entries()) {
-      module.addDependency(
-        new TransformAsyncDependency(request, identifier, ["default"]),
-      );
+      module.addDependency(new TransformAsyncDependency(request, identifier));
     }
   }
 
