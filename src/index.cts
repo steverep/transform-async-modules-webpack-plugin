@@ -137,7 +137,7 @@ export class TransformAsyncModulesPlugin implements WebpackPluginInstance {
         );
 
         // Add dependencies for modules with top level await.  This can be done
-        // during parsing to avoid rebuilding.
+        // during parsing to avoid manual processing.
         const logger = compilation.getLogger(PLUGIN_NAME);
         for (const key of ["javascript/auto", "javascript/esm"]) {
           normalModuleFactory.hooks.parser
@@ -161,8 +161,8 @@ export class TransformAsyncModulesPlugin implements WebpackPluginInstance {
         // Async modules are flagged internally after all modules are built,
         // and thus their dependencies have already been processed.  This means
         // that for each async module, excluding those already handled while
-        // parsing, we need to add the dependencies and then invalidate and
-        // reprocess all of its dependencies.
+        // parsing, we need to add the dependencies and then process them
+        // manually.
         compilation.hooks.finishModules.tapPromise(
           PLUGIN_NAME,
           async (modules) => {
@@ -174,15 +174,29 @@ export class TransformAsyncModulesPlugin implements WebpackPluginInstance {
                 !this.#parsedTLAModules.has(m)
               ) {
                 identifiers.push(m.readableIdentifier(shortener));
-                processes.push(
-                  new Promise((resolve, reject) => {
-                    this.#addDependenciesToModule(m);
-                    compilation.processDependenciesQueue.invalidate(m);
-                    compilation.processModuleDependencies(m, (err, result) =>
-                      err ? reject(err) : resolve(result),
-                    );
-                  }),
-                );
+                // Steps to process are taken from _processModuleDependencies:
+                // https://github.com/webpack/webpack/blob/7b4775cebe372f9396d8f3b61ef1347cb633956e/lib/Compilation.js#L1473
+                // After eliminating manual async fluff and focusing on only the
+                // new dependencies, this boils down to modifying the module
+                // graph and then calling the method to build the new modules.
+                const startIndex = m.dependencies.length;
+                this.#addDependenciesToModule(m);
+                const transformDependencies = m.dependencies.slice(startIndex);
+                for (const [i, dep] of transformDependencies.entries()) {
+                  compilation.moduleGraph.setParents(dep, m, m, startIndex + i);
+                  processes.push(
+                    new Promise((resolve, reject) => {
+                      compilation.handleModuleCreation(
+                        {
+                          factory: normalModuleFactory,
+                          dependencies: [dep],
+                          originModule: m,
+                        },
+                        (err, result) => (err ? reject(err) : resolve(result)),
+                      );
+                    }),
+                  );
+                }
               }
             }
             logger.debug(
@@ -196,13 +210,11 @@ export class TransformAsyncModulesPlugin implements WebpackPluginInstance {
     );
   };
 
-  #addDependenciesToModule = (module: Module) => {
+  #addDependenciesToModule(module: Module) {
     for (const [request, identifier] of this.#dependencies.entries()) {
-      module.addDependency(
-        new TransformAsyncDependency(request, identifier, ["default"]),
-      );
+      module.addDependency(new TransformAsyncDependency(request, identifier));
     }
-  };
+  }
 
   #applyTransformHooks = (compiler: Compiler) => {
     const { SourceMapSource } = compiler.webpack.sources;
