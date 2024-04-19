@@ -1,39 +1,28 @@
-import { FlatCompat } from "@eslint/eslintrc";
+// @ts-check
 import eslintJS from "@eslint/js";
-import typescriptParser from "@typescript-eslint/parser";
 import eslintConfigPrettier from "eslint-config-prettier";
 import globals from "globals";
-import { dirname } from "path";
-import { fileURLToPath } from "url";
+import eslintTS from "typescript-eslint";
 
 const allFiles = "**/*.?(c|m){js,ts}";
 const jsFiles = "**/*.?(c|m)js";
 const commonFiles = "**/*.c{js,ts}";
 
-const rootDir = dirname(fileURLToPath(import.meta.url));
-const compat = new FlatCompat({ baseDirectory: rootDir });
-
-export default [
+export default eslintTS.config(
   { ignores: [".yarn/", ".pnp.*", "**/dist/"] },
-  { files: [allFiles], ...eslintJS.configs.recommended },
-  ...compat
-    .extends(
-      "plugin:@typescript-eslint/recommended-type-checked",
-      "plugin:@typescript-eslint/stylistic-type-checked",
-    )
-    .map((config) => ({ files: [allFiles], ...config })),
-  ...compat
-    .extends("plugin:@typescript-eslint/disable-type-checked")
-    .map((config) => ({ files: [jsFiles], ...config })),
-  { files: [allFiles], ...eslintConfigPrettier },
   {
     files: [allFiles],
+    extends: [
+      eslintJS.configs.recommended,
+      ...eslintTS.configs.recommendedTypeChecked,
+      ...eslintTS.configs.stylisticTypeChecked,
+      eslintConfigPrettier,
+    ],
     languageOptions: {
       ecmaVersion: "latest",
       sourceType: "module",
       globals: globals.nodeBuiltin,
-      // Options specific to @typescript-eslint/parser
-      parser: typescriptParser,
+      parser: eslintTS.parser,
       parserOptions: {
         allowAutomaticSingleRunInference: true,
         ecmaVersion: "latest",
@@ -43,6 +32,10 @@ export default [
     linterOptions: {
       reportUnusedDisableDirectives: true,
     },
+  },
+  {
+    files: [jsFiles],
+    extends: [eslintTS.configs.disableTypeChecked],
   },
   {
     files: [commonFiles],
@@ -58,4 +51,4 @@ export default [
       "@typescript-eslint/require-await": "off",
     },
   },
-];
+);
