@@ -1392,13 +1392,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint/js@npm:9.0.0":
-  version: 9.0.0
-  resolution: "@eslint/js@npm:9.0.0"
-  checksum: 10c0/ec3242a60a2525d2785d96d1e95b8060235f47f3b953aa81626968591ef8c1eb4f7f8b3647db2c97fdfa524eace949a5695be50521f64b8dcc4ed3b493ee409e
-  languageName: node
-  linkType: hard
-
 "@eslint/js@npm:9.1.1":
   version: 9.1.1
   resolution: "@eslint/js@npm:9.1.1"
@@ -4552,7 +4545,7 @@ __metadata:
     "@babel/plugin-transform-runtime": "npm:^7.13.0"
     "@babel/preset-env": "npm:^7.13.0"
     "@babel/runtime": "npm:7.24.5"
-    "@eslint/js": "npm:9.0.0"
+    "@eslint/js": "npm:9.1.1"
     "@types/babel__core": "npm:7.20.5"
     "@types/babel__plugin-transform-runtime": "npm:7.9.5"
     "@types/babel__preset-env": "npm:7.9.6"
