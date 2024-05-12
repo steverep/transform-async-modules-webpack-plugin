@@ -68,7 +68,7 @@
     "@types/babel__core": "7.20.5",
     "@types/babel__plugin-transform-runtime": "7.9.5",
     "@types/babel__preset-env": "7.9.6",
-    "@types/chai": "4.3.14",
+    "@types/chai": "4.3.16",
     "@types/chai-jest-snapshot": "1.3.8",
     "@types/eslint-config-prettier": "6.11.3",
     "@types/eslint__js": "8.42.3",
