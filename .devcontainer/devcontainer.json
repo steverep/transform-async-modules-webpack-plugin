@@ -4,7 +4,10 @@
   "features": {
     "ghcr.io/devcontainers/features/node:1": {}
   },
-  "postCreateCommand": "corepack enable && corepack install && yarn",
+  "postStartCommand": {
+    "os": "sudo apt update && sudo apt upgrade -y",
+    "node": ". ${NVM_DIR}/nvm.sh && nvm install --default --latest-npm && corepack enable && corepack install && yarn && yarn dlx @yarnpkg/sdks vscode"
+  },
   "customizations": {
     "vscode": {
       "extensions": [
