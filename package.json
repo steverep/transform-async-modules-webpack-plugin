@@ -78,7 +78,7 @@
     "chai-jest-snapshot": "2.0.0",
     "eslint": "9.3.0",
     "eslint-config-prettier": "9.1.0",
-    "globals": "15.1.0",
+    "globals": "15.3.0",
     "mocha": "10.4.0",
     "prettier": "3.2.5",
     "ts-node": "10.9.2",
