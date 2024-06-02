@@ -83,7 +83,7 @@ for (const runtime of [false, { version: devDependencies["@babel/runtime"] }]) {
               outChunk,
               runtime
                 ? /var _asyncToGenerator = __webpack_require__/
-                : /function _asyncToGenerator\(fn\) {/,
+                : /function _asyncToGenerator\(\w+\) {/,
               nMatches,
             ),
           );
