@@ -26,7 +26,7 @@ export default eslintTS.config(
       parserOptions: {
         allowAutomaticSingleRunInference: true,
         ecmaVersion: "latest",
-        EXPERIMENTAL_useProjectService: true,
+        projectService: true,
       },
     },
     linterOptions: {
