@@ -20,13 +20,13 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4.2.2
       - name: Setup Node
-        uses: actions/setup-node@v4.1.0
+        uses: actions/setup-node@v4.2.0
         with:
           node-version-file: ".nvmrc"
       - name: Setup yarn with corepack
         run: corepack enable && corepack install
       - name: Setup Node again with yarn cache
-        uses: actions/setup-node@v4.1.0
+        uses: actions/setup-node@v4.2.0
         with:
           node-version-file: ".nvmrc"
           cache: yarn
