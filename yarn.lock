@@ -1071,12 +1071,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:7.26.7, @babel/runtime@npm:^7.8.4":
-  version: 7.26.7
-  resolution: "@babel/runtime@npm:7.26.7"
+"@babel/runtime@npm:7.26.9, @babel/runtime@npm:^7.8.4":
+  version: 7.26.9
+  resolution: "@babel/runtime@npm:7.26.9"
   dependencies:
     regenerator-runtime: "npm:^0.14.0"
-  checksum: 10c0/60199c049f90e5e41c687687430052a370aca60bac7859ff4ee761c5c1739b8ba1604d391d01588c22dc0e93828cbadb8ada742578ad1b1df240746bce98729a
+  checksum: 10c0/e8517131110a6ec3a7360881438b85060e49824e007f4a64b5dfa9192cf2bb5c01e84bfc109f02d822c7edb0db926928dd6b991e3ee460b483fb0fac43152d9b
   languageName: node
   linkType: hard
 
@@ -4245,7 +4245,7 @@ __metadata:
     "@babel/core": "npm:^7.13.0"
     "@babel/plugin-transform-runtime": "npm:^7.13.0"
     "@babel/preset-env": "npm:^7.13.0"
-    "@babel/runtime": "npm:7.26.7"
+    "@babel/runtime": "npm:7.26.9"
     "@eslint/js": "npm:9.17.0"
     "@types/babel__core": "npm:7.20.5"
     "@types/babel__plugin-transform-runtime": "npm:7.9.5"
