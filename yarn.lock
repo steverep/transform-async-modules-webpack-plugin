@@ -1523,12 +1523,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:22.15.30":
-  version: 22.15.30
-  resolution: "@types/node@npm:22.15.30"
+"@types/node@npm:*, @types/node@npm:22.15.32":
+  version: 22.15.32
+  resolution: "@types/node@npm:22.15.32"
   dependencies:
     undici-types: "npm:~6.21.0"
-  checksum: 10c0/ca330ac0e7fd502686d6df115fcc606aba46fd334220f749bbba2f639accdadcb23f7900603ceccdc8240be736739cad5c0b87c0fa92c9255a4dff245f07d664
+  checksum: 10c0/63a2fa52adf1134d1b3bee8b1862d4b8e4550fffc190551068d3d41a41d9e5c0c8f1cb81faa18767b260637360f662115c26c5e4e7718868ead40c4a57cbc0e3
   languageName: node
   linkType: hard
 
@@ -3751,7 +3751,7 @@ __metadata:
     "@types/eslint-config-prettier": "npm:6.11.3"
     "@types/eslint__js": "npm:8.42.3"
     "@types/mocha": "npm:10.0.10"
-    "@types/node": "npm:22.15.30"
+    "@types/node": "npm:22.15.32"
     chai: "npm:5.2.0"
     chai-jest-snapshot: "npm:2.0.0"
     eslint: "npm:9.28.0"
