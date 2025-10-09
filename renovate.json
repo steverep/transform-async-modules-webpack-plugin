@@ -9,7 +9,7 @@
     "group:recommended",
     "replacements:all",
     "workarounds:all",
-    "npm:unpublishSafe"
+    "security:minimumReleaseAgeNpm"
   ],
   "enabledManagers": ["github-actions", "npm", "nvm"],
   "ignorePaths": ["**/node_modules/**", "**/.yarn/sdks/**"],
