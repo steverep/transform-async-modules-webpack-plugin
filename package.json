@@ -79,7 +79,7 @@
     "eslint": "9.37.0",
     "eslint-config-prettier": "10.1.8",
     "globals": "16.4.0",
-    "mocha": "11.7.4",
+    "mocha": "11.7.5",
     "prettier": "3.6.2",
     "ts-node": "10.9.2",
     "typescript": "5.9.3",
